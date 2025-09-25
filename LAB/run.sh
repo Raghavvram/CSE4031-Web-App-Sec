@@ -1,12 +1,5 @@
 #!/bin/bash
 
-#################################################################
-# ATOMIC LAB SETUP SCRIPT for LATEST KALI LINUX (ONLY)
-# Secure, idempotent, and error-free!
-# Includes: DVWA, Juice Shop (Docker), CGI Lab, Full Automation
-# Version: 5.1-kali
-#################################################################
-
 set -euo pipefail
 
 readonly SCRIPT_VERSION="5.1-kali"
