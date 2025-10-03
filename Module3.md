@@ -127,20 +127,20 @@ An attacker can exploit a flaw like Cross-Site Scripting (XSS) on the less-secur
 
 ### Explanation
 
-[cite\_start]Secure session management requires both generating strong tokens and protecting them throughout their lifecycle[cite: 67, 1369]. Key practices include:
+Secure session management requires both generating strong tokens and protecting them throughout their lifecycle. Key practices include:
 
-  * [cite\_start]**Generate Strong Tokens**: Tokens must be long, unique, and unpredictable, using cryptographically secure random functions[cite: 73, 74, 1374]. [cite\_start]All session state should be stored on the server, not in the token[cite: 1379].
-  * [cite\_start]**Protect Tokens**: Transmit tokens only over HTTPS and use the `Secure` flag on cookies[cite: 68, 78, 1404, 1405]. [cite\_start]Never include tokens in URLs[cite: 79, 1410].
-  * [cite\_start]**Lifecycle Management**: Invalidate sessions on the server after logout and periods of inactivity[cite: 69, 71, 81, 1413, 1414]. [cite\_start]Always generate a new session token after a user authenticates to prevent session fixation[cite: 69, 1441].
-  * [cite\_start]**Log, Monitor, and Alert**: Log all session-related events and monitor for anomalies like brute-force guessing attempts (many requests with invalid tokens)[cite: 87, 90, 91, 1475]. [cite\_start]Alert administrators to suspicious activity[cite: 95, 1479].
+  * **Generate Strong Tokens**: Tokens must be long, unique, and unpredictable, using cryptographically secure random functions. All session state should be stored on the server, not in the token.
+  * **Protect Tokens**: Transmit tokens only over HTTPS and use the `Secure` flag on cookies. Never include tokens in URLs.
+  * **Lifecycle Management**: Invalidate sessions on the server after logout and periods of inactivity. Always generate a new session token after a user authenticates to prevent session fixation.
+  * **Log, Monitor, and Alert**: Log all session-related events and monitor for anomalies like brute-force guessing attempts (many requests with invalid tokens). Alert administrators to suspicious activity.
 
 ### Example: Log, Monitor, and Alert
 
-[cite\_start]An attacker attempts to guess valid session IDs by sending thousands of requests with random tokens[cite: 1475]. [cite\_start]The application's monitoring system detects a massive spike in failed session validations from a single IP address[cite: 1477].
+An attacker attempts to guess valid session IDs by sending thousands of requests with random tokens. The application's monitoring system detects a massive spike in failed session validations from a single IP address.
 
 ### Output
 
-[cite\_start]The system triggers an alert to an administrator, who can then investigate the attack and block the source IP address, mitigating the threat before the attacker can successfully guess a valid token[cite: 95, 1479].
+The system triggers an alert to an administrator, who can then investigate the attack and block the source IP address, mitigating the threat before the attacker can successfully guess a valid token.
 
 ### Diagram
 
