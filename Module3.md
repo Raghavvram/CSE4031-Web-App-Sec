@@ -4,7 +4,7 @@
 
 ### Explanation
 
-The HTTP protocol is fundamentally stateless, meaning each request is treated as an independent transaction[cite: 4, 257]. [cite\_start]To create interactive experiences like user logins or shopping carts, web applications must implement a mechanism to remember and identify a user across multiple requests[cite: 4, 238]. [cite\_start]This is called maintaining "state," and it is typically achieved by issuing a unique session token to each user[cite: 275]. [cite\_start]Attacks against sessions work by exploiting this state mechanism to impersonate legitimate users[cite: 10, 241].
+The HTTP protocol is fundamentally stateless, meaning each request is treated as an independent transaction. To create interactive experiences like user logins or shopping carts, web applications must implement a mechanism to remember and identify a user across multiple requests[cite: 4, 238]. [cite\_start]This is called maintaining "state," and it is typically achieved by issuing a unique session token to each user[cite: 275]. [cite\_start]Attacks against sessions work by exploiting this state mechanism to impersonate legitimate users[cite: 10, 241].
 
 ### Code/Example
 
