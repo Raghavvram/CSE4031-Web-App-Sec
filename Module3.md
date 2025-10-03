@@ -8,20 +8,20 @@ The HTTP protocol is fundamentally stateless, meaning each request is treated as
 
 ### Code/Example
 
-[cite\_start]The most common method for transmitting session tokens is through HTTP cookies[cite: 277].
+The most common method for transmitting session tokens is through HTTP cookies.
 
-  * [cite\_start]The server first issues a token to a new client using the `Set-Cookie` response header[cite: 278].
+  * The server first issues a token to a new client using the `Set-Cookie` response header.
     ```http
-    [cite_start]Set-Cookie: ASP.NET_SessionId=mza2j1454804cwbgwb2ttj55 [cite: 279]
+    Set-Cookie: ASP.NET_SessionId=mza2j1454804cwbgwb2ttj55
     ```
-  * [cite\_start]The browser then automatically includes this cookie in all subsequent requests to that server[cite: 280].
+  * The browser then automatically includes this cookie in all subsequent requests to that server.
     ```http
-    [cite_start]Cookie: ASP.NET_SessionId=mza2ji454804cwbgwb2ttj55 [cite: 280]
+    Cookie: ASP.NET_SessionId=mza2ji454804cwbgwb2ttj55
     ```
 
 ### Output
 
-[cite\_start]The application uses the submitted token to retrieve the user's session data, allowing them to remain authenticated and access protected resources without having to re-enter credentials for every page view[cite: 267].
+The application uses the submitted token to retrieve the user's session data, allowing them to remain authenticated and access protected resources without having to re-enter credentials for every page view.
 
 ### Diagram
 
