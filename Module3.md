@@ -50,25 +50,25 @@ The application uses the submitted token to retrieve the user's session data, al
 
 ### Explanation
 
-[cite\_start]The security of a session mechanism depends on its tokens being unique, unpredictable, and properly managed[cite: 33]. [cite\_start]If tokens are generated using weak or predictable methods, an attacker can guess or extrapolate the tokens issued to other users and hijack their sessions[cite: 34, 341].
+The security of a session mechanism depends on its tokens being unique, unpredictable, and properly managed. If tokens are generated using weak or predictable methods, an attacker can guess or extrapolate the tokens issued to other users and hijack their sessions.
 
 ### Code/Example: Meaningful Tokens
 
-[cite\_start]Some applications create tokens by encoding user-specific information, which can be reverse-engineered[cite: 351].
+Some applications create tokens by encoding user-specific information, which can be reverse-engineered.
 
   * **Token Value:**
     ```
-    [cite_start]75736572306461663b6170703061646d696e3b646174653430312313223131 [cite: 354]
+    75736572306461663b6170703061646d696e3b646174653430312313223131
     ```
-  * [cite\_start]This token appears random but contains only hexadecimal characters[cite: 355].
+  * This token appears random but contains only hexadecimal characters.
 
 ### Output
 
-[cite\_start]By decoding the hex string, its meaningful structure is exposed[cite: 356]. [cite\_start]An attacker can forge tokens for other users (e.g., changing `daf` to `admin`) to escalate privileges[cite: 359].
+By decoding the hex string, its meaningful structure is exposed. An attacker can forge tokens for other users (e.g., changing `daf` to `admin`) to escalate privileges.
 
   * **Decoded Value:**
     ```
-    [cite_start]user=daf;app=admin;date=10/09/11 [cite: 357]
+    user=daf;app=admin;date=10/09/11 [cite: 357]
     ```
 
 ### Diagram
@@ -90,21 +90,21 @@ The application uses the submitted token to retrieve the user's session data, al
 
 ### Explanation
 
-[cite\_start]Applications can specify a cookie's scope with the `domain` attribute[cite: 1304, 1305]. [cite\_start]If this scope is set too liberally (e.g., to a parent domain like `.example.com` instead of `app.example.com`), the cookie will be sent to all subdomains[cite: 64, 1312]. [cite\_start]If a less secure application exists on another subdomain, it can be used as a vector to steal the sensitive session cookie[cite: 65, 1338].
+Applications can specify a cookie's scope with the `domain` attribute. If this scope is set too liberally (e.g., to a parent domain like `.example.com` instead of `app.example.com`), the cookie will be sent to all subdomains. If a less secure application exists on another subdomain, it can be used as a vector to steal the sensitive session cookie.
 
 ### Code/Example
 
-[cite\_start]A secure application at `sensitiveapp.wahh-organization.com` sets a cookie with a liberal domain scope[cite: 1331, 1332].
+A secure application at `sensitiveapp.wahh-organization.com` sets a cookie with a liberal domain scope.
 
 ```http
-[cite_start]Set-cookie: sessionid=12df098ad809a5219; domain=wahh-organization.com [cite: 1333]
+Set-cookie: sessionid=12df098ad809a5219; domain=wahh-organization.com
 ```
 
-[cite\_start]This causes the cookie to be sent to all other subdomains, including a less secure one like `testapp.wahh-organization.com`[cite: 1335].
+This causes the cookie to be sent to all other subdomains, including a less secure one like `testapp.wahh-organization.com`.
 
 ### Output
 
-[cite\_start]An attacker can exploit a flaw like Cross-Site Scripting (XSS) on the less-secure `testapp` subdomain to run a script that captures the `sessionid` cookie[cite: 1341]. [cite\_start]The attacker then uses this stolen cookie to hijack the user's session on the high-security `sensitiveapp`[cite: 1341].
+An attacker can exploit a flaw like Cross-Site Scripting (XSS) on the less-secure `testapp` subdomain to run a script that captures the `sessionid` cookie. The attacker then uses this stolen cookie to hijack the user's session on the high-security `sensitiveapp`.
 
 ### Diagram
 
